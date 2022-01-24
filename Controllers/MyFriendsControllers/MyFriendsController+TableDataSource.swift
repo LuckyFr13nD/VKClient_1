@@ -17,7 +17,8 @@ extension MyFriendsViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifierUniversalTableViewCell, for: indexPath) as? UniversalTableViewCell
         else {return UITableViewCell()}
         
-        cell.configure(image: nil, name: friends[indexPath.row], surname: nil)
+        //cell.configure(image: nil, name: friends[indexPath.row], surname: nil)
+        cell.configure(friend: friends[indexPath.row])
         
         return cell
         

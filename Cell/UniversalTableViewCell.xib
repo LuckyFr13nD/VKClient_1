@@ -25,23 +25,23 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbA-M9-Jx4">
                         <rect key="frame" x="108" y="19" width="45" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Surname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bi-M3-5OH">
-                        <rect key="frame" x="108" y="55" width="69" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="108" y="48" width="69" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="4bi-M3-5OH" firstAttribute="leading" secondItem="nbA-M9-Jx4" secondAttribute="trailing" constant="8" symbolic="YES" id="2rF-zm-bx7"/>
+                    <constraint firstItem="4bi-M3-5OH" firstAttribute="leading" secondItem="nbA-M9-Jx4" secondAttribute="leading" id="2uE-B4-bK3"/>
                     <constraint firstItem="44N-KJ-YwH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="AOo-tF-ja1"/>
                     <constraint firstItem="44N-KJ-YwH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="KB6-P1-N8h"/>
-                    <constraint firstItem="nbA-M9-Jx4" firstAttribute="centerY" secondItem="44N-KJ-YwH" secondAttribute="centerY" id="XvH-6t-Ptd"/>
-                    <constraint firstItem="4bi-M3-5OH" firstAttribute="centerY" secondItem="nbA-M9-Jx4" secondAttribute="centerY" id="oSq-ZM-xdq"/>
+                    <constraint firstItem="nbA-M9-Jx4" firstAttribute="centerY" secondItem="44N-KJ-YwH" secondAttribute="centerY" constant="-10" id="XvH-6t-Ptd"/>
+                    <constraint firstItem="4bi-M3-5OH" firstAttribute="top" secondItem="nbA-M9-Jx4" secondAttribute="bottom" constant="8" id="kDm-wD-La6"/>
                     <constraint firstItem="nbA-M9-Jx4" firstAttribute="leading" secondItem="44N-KJ-YwH" secondAttribute="trailing" constant="14" id="vkm-bq-Vbw"/>
                 </constraints>
             </tableViewCellContentView>

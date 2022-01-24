@@ -10,14 +10,14 @@ import UIKit
 extension MyGroupsViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return groups.count
+        return Storage.share.myGroups.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifierUniversalTableViewCell, for: indexPath) as? UniversalTableViewCell
+        guard let cell = myGroupsTableView.dequeueReusableCell(withIdentifier: reuseIdentifierUniversalTableViewCell, for: indexPath) as? UniversalTableViewCell
         else {return UITableViewCell()}
     
-        cell.configure(image: nil, name: groups[indexPath.row], surname: nil)
+        cell.configure(group: Storage.share.myGroups[indexPath.row])
     
         return cell
     }
