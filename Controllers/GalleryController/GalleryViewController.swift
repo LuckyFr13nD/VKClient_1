@@ -38,15 +38,16 @@ extension GalleryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifierGalleryCell, for: indexPath) as? GalleryCell else {return UICollectionViewCell()}
         
-        cell.configure(photoPath: photoArray[indexPath.item])
+        cell.configure(photoPath: photoArray[indexPath.item], likeCount: indexPath.item)
         return cell
     }
 }
 
 extension GalleryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let heightBottomLikeControl: CGFloat = 50
         let width = collectionView.bounds.width / 3 - 30
-        return CGSize(width: width, height: width)
+        return CGSize(width: width, height: width + heightBottomLikeControl)
     }
 }
 

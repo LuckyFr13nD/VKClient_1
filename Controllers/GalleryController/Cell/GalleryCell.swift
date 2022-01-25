@@ -11,6 +11,9 @@ class GalleryCell: UICollectionViewCell {
 
     
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var likeCounterView: LikeCounterControlView!
+    
+    var likeCount = 0
     
     override func prepareForReuse() {
         photoImageView.image = nil
@@ -19,12 +22,29 @@ class GalleryCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        likeCounterView.delegate = self
     }
     
-    func configure(photoPath: String){
+    func configure(photoPath: String, likeCount: Int){
         photoImageView.image = UIImage(named: photoPath)
+        self.likeCount = likeCount
+        likeCounterView.configure(count: likeCount)
     }
 
 }
 
+
+extension GalleryCell: LikeCounterControlViewProtocol {
+    func countIncrement(count: Int) {
+        print(count)
+    }
+    
+    func countDecrement(count: Int) {
+        print(count)
+    }
+    
+    func sourceCount() -> Int {
+        return self.likeCount
+    }
+    
+}
