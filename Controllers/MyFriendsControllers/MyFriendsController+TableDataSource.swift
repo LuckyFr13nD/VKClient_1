@@ -18,11 +18,13 @@ extension MyFriendsViewController: UITableViewDataSource {
         else {return UITableViewCell()}
         
         //cell.configure(image: nil, name: friends[indexPath.row], surname: nil)
-        cell.configure(friend: friends[indexPath.row])
-        
+        cell.configure(friend: friends[indexPath.row], completion: {[weak self] in
+            guard let self = self else {return}
+            self.performSegue(withIdentifier: self.fromMyFriendstoGallery, sender: self.friends[indexPath.row])
+        })
         return cell
         
     }
     
-     
+    
 }

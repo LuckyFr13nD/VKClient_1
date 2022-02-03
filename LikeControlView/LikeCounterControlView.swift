@@ -62,14 +62,30 @@ protocol LikeCounterControlViewProtocol: AnyObject {
     @IBAction func pressLikeButton(_ sender: Any) {
         if isLikeEmpty {
             self.likeCounter += 1
+            UIView.transition(with: countLabel,
+                              duration: 1,
+                              options: [.transitionFlipFromTop]) {[weak self] in
+                guard let self = self else {return}
+                self.countLabel.text = String(self.likeCounter)
+            } completion: { _ in
+                
+            }
             likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             self.delegate?.countIncrement(count: self.likeCounter)
         } else {
             self.likeCounter -= 1
+            UIView.transition(with: countLabel,
+                              duration: 1,
+                              options: [.transitionFlipFromTop]) {[weak self] in
+                guard let self = self else {return}
+                self.countLabel.text = String(self.likeCounter)
+            } completion: { _ in
+                
+            }
             likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
             self.delegate?.countDecrement(count: self.likeCounter)
         }
-        countLabel.text = String(likeCounter)
+        //countLabel.text = String(likeCounter)
         isLikeEmpty = !isLikeEmpty
     }
     

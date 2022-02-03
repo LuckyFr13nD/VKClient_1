@@ -15,6 +15,49 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    
+    @IBOutlet weak var firstBlueView: UIView!
+    @IBOutlet weak var secondBlueView: UIView!
+    @IBOutlet weak var thirdBlueView: UIView!
+    
+    let segueFromLoginToTabBar = "segueFromLoginToTabBar"
+    
+    func animateBlueViewsAndPerform(exitAfter: Int, currentCount: Int) {
+        UIView.animate(withDuration: 1) {[weak self] in
+            self?.firstBlueView.alpha = 0
+            self?.secondBlueView.alpha = 1
+        } completion: { _ in
+            UIView.animate(withDuration: 1) {[weak self] in
+                self?.secondBlueView.alpha = 0
+                self?.thirdBlueView.alpha = 1
+            } completion: { _ in
+                UIView.animate(withDuration: 1) {[weak self] in
+                    self?.thirdBlueView.alpha = 0
+                    self?.firstBlueView.alpha = 1
+                } completion: { [weak self] _ in
+                    
+                    if currentCount < exitAfter {
+                        self?.animateBlueViewsAndPerform(exitAfter: exitAfter, currentCount: currentCount + 1)
+                    } else {
+                        self?.firstBlueView.alpha = 0
+                        self?.performSegueSegueFromLoginToTabBar()
+                    }
+                }
+            }
+        }
+    }
+    
+    func performSegueSegueFromLoginToTabBar() {
+        performSegue(withIdentifier: segueFromLoginToTabBar, sender: nil)
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        firstBlueView.alpha = 0
+        secondBlueView.alpha = 0
+        thirdBlueView.alpha = 0
+    }
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -62,24 +105,27 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButtonPressed(_ sender: Any) {
         
-        //guard
-        //  let login = loginTextField.text,
-        //  let password = passwordTextField.text
-        //  else {return}
+        guard
+          let login = loginTextField.text,
+          let password = passwordTextField.text
+          else {return}
         
-        //if login == "admin",
-        // password == "1234" {
-        func performSegue(withIdentifier identifier: String, sender: Any?) {
-            return
-        }
-        // } else {
+        if login == "admin",
+         password == "1234" {
+            animateBlueViewsAndPerform(exitAfter: 1, currentCount: 0)
+//
+//    func performSegue(withIdentifier identifier: String, sender: Any?) {
+//            return
+//        }
+            
+         } else {
         
-        //            let alert = UIAlertController(title: "Sorry", message: "Login or password is wrong", preferredStyle: .alert)
-        //            let action = UIAlertAction(title: "Try again", style: .cancel, handler: nil)
-        //
-        //            alert.addAction(action)
-        //            present(alert, animated: true, completion: nil)
-        //        }
+                    let alert = UIAlertController(title: "Sorry", message: "Login or password is wrong", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "Try again", style: .cancel, handler: nil)
+        
+                    alert.addAction(action)
+                    present(alert, animated: true, completion: nil)
+                }
     }
     
     func fillFriendsData() {

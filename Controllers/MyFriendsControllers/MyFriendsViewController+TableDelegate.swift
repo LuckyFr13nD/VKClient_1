@@ -21,7 +21,7 @@ extension MyFriendsViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(friends[indexPath.row])
-        performSegue(withIdentifier: fromMyFriendstoGallery, sender: friends[indexPath.row])
+//        print(friends[indexPath.row])
+//        performSegue(withIdentifier: fromMyFriendstoGallery, sender: friends[indexPath.row])
     }
 }

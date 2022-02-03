@@ -35,13 +35,25 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W9L-dd-18x">
+                        <rect key="frame" x="0.0" y="0.0" width="397" height="100"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <connections>
+                            <action selector="pressToViewButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="mkV-P1-pDb"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="4bi-M3-5OH" firstAttribute="leading" secondItem="nbA-M9-Jx4" secondAttribute="leading" id="2uE-B4-bK3"/>
+                    <constraint firstItem="W9L-dd-18x" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="92G-W7-Hnl"/>
                     <constraint firstItem="44N-KJ-YwH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="AOo-tF-ja1"/>
                     <constraint firstItem="44N-KJ-YwH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="KB6-P1-N8h"/>
+                    <constraint firstAttribute="bottom" secondItem="W9L-dd-18x" secondAttribute="bottom" id="Owz-Qc-QFj"/>
+                    <constraint firstAttribute="trailing" secondItem="W9L-dd-18x" secondAttribute="trailing" id="TnT-ta-vHh"/>
                     <constraint firstItem="nbA-M9-Jx4" firstAttribute="centerY" secondItem="44N-KJ-YwH" secondAttribute="centerY" constant="-10" id="XvH-6t-Ptd"/>
                     <constraint firstItem="4bi-M3-5OH" firstAttribute="top" secondItem="nbA-M9-Jx4" secondAttribute="bottom" constant="8" id="kDm-wD-La6"/>
+                    <constraint firstItem="W9L-dd-18x" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="m7D-ho-mbR"/>
                     <constraint firstItem="nbA-M9-Jx4" firstAttribute="leading" secondItem="44N-KJ-YwH" secondAttribute="trailing" constant="14" id="vkm-bq-Vbw"/>
                 </constraints>
             </tableViewCellContentView>
